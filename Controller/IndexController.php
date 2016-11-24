@@ -14,4 +14,8 @@ class IndexController {
         require_once TEMPLATES_DIR .'/index.php';
     }
 
+    public function news() {
+
+    }
+
 }

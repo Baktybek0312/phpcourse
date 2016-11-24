@@ -58,11 +58,18 @@
 
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
-        <?php if (isset($_SESSION["user"])):?>
-        <li>
-            <img src="/upload/<?php echo $_SESSION["user"]["image_file_name"] ?>" />
-        </li>
-        <?php endif; ?>
+        <h1>Логин</h1>
+        <form method="post" action="/login" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" name="login" class="form-control" placeholder="Login"/>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Password"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Логин" class="btn btn-danger">
+            </div>
+        </form>
 
     </div>
 

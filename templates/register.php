@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +16,7 @@
     <link href="http://bootstrap-3.ru/navbar.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src=".http://bootstrap-3.ru/./../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://bootstrap-3.ru/../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -30,20 +29,13 @@
 
 <div class="container">
 
-    <!-- Static navbar -->
     <div class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Project name</a>
+                <a class="navbar-brand" href="#">PHP Course</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav">
                     <?php if (isset($_SESSION["user"])): ?>
                         <li><a href="#"><?php echo $_SESSION["user"]["login"]; ?></a></li>
                         <li><a href="/logout">Логаут</a></li>
@@ -52,21 +44,29 @@
                         <li><a href="/register">Регистрация</a></li>
                     <?php endif;; ?>
                 </ul>
-            </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
+            </div>
+        </div>
     </div>
 
-    <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
-        <?php if (isset($_SESSION["user"])):?>
-        <li>
-            <img src="/upload/<?php echo $_SESSION["user"]["image_file_name"] ?>" />
-        </li>
-        <?php endif; ?>
-
+        <h1>Регистрация</h1>
+        <form method="post" action="/register" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" name="login" class="form-control" placeholder="Login"/>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Password"/>
+            </div>
+            <div class="form-group">
+                <input type="file" name="image" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Регистрация" class="btn btn-danger">
+            </div>
+        </form>
     </div>
 
-</div> <!-- /container -->
+</div>
 
 
 <!-- Bootstrap core JavaScript
